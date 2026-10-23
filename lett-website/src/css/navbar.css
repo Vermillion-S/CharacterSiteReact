@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+.nav-link {
+    @apply relative text-white/70 transition-colors duration-300 hover:text-white;
+}
+
+.nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-white transition-all duration-300;
+}
+
+.nav-link:hover::after {
+    @apply w-full;
+}
+
+.mobile-nav-link {
+    @apply text-xl text-white/80 transition-colors duration-300 hover:text-white;
+}

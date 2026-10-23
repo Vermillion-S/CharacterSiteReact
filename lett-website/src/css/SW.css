@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+
+@layer base {
+
+    @font-face {
+        font-family: 'Major-Mono';
+        src: url('../assets/fonts/MajorMonoDisplay-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Press-Start-2P';
+        src: url('../assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Share-Tech-Mono';
+        src: url('../assets/fonts/ShareTechMono-Regular.ttf') format('truetype');
+    }
+    h2 {
+        color: var(--terminal-bg);
+        font-family: 'Press-Start-2P', system-ui;
+        overflow: hidden;
+    }
+
+    h3 {
+        color: var(--terminal-secondary);
+        font-family: "Major-Mono", monospace;
+
+        &::selection {
+            background-color: var(--terminal-secondary);
+            color: var(--terminal-bg);
+            text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5),
+            -1px -1px rgba(0, 255, 255, 0.4);
+        }
+
+        &:before {
+            content: "▮ ";
+        }
+    }
+
+    p {
+        color: var(--terminal-primary);
+        font-family: "Share-Tech-Mono", monospace;
+
+        &::selection {
+
+            background-color: var(--terminal-primary);
+            color: var(--terminal-bg);
+            text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5),
+            -1px -1px rgba(0, 255, 255, 0.4);
+        }
+
+
+    }
+
+
+
+    b {
+        color: var(--terminal-secondary);
+        font-weight: normal;
+    }
+
+    strong {
+        color: #faee65;
+        font-weight: normal;
+    }
+
+    mark {
+        background-color: var(--terminal-secondary);
+        color: var(--terminal-bg);
+
+    }
+
+}
+
+@layer components {
+    .header {
+        background-color: var(--terminal-teriary);
+    }
+}
+
+:root {
+    --crt-red: rgb(218, 49, 49);
+    --crt-green: rgb(112, 159, 115);
+    --crt-blue: rgb(40, 129, 206);
+    --terminal-bg: #03110a;
+    --terminal-primary: #c1f5ee;
+    --terminal-secondary: #adf1b6;
+    --terminal-teriary: #e9ede8;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --data-node-size: 50px;
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+            rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
+
+    @media (max-width: 1024px) {
+        font-size: 16px;
+    }
+}
+/* Global */
+/* Global */
+html {
+    font-size: 1.5rem;
+    font-family: "Courier New", monospace;
+    min-height: 100%;
+}
+.crt > main {
+    height: 100vh;
+    height: 100vh;
+    color: rgba(255, 255, 255, 0.75);
+
+    @apply mx-2 md:m-auto md:grid-cols-12 justify-center max-h-full;
+
+    & :first-child {
+        @apply col-start-3 col-span-8 justify-center;
+    }
+}
+
+
+
+.crt {
+    background-color: var(--terminal-bg);
+    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5),
+    -1px -1px rgba(0, 255, 255, 0.4);
+    position: relative;
+    &:before,
+    &:after {
+        content: "";
+        transform: translateZ(0);
+        pointer-events: none;
+        opacity: 0.5;
+        mix-blend-mode: overlay;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 100;
+    }
+
+    &:before {
+        background: repeating-linear-gradient(
+                var(--crt-red) 0px,
+                var(--crt-green) 2px,
+                var(--crt-blue) 4px
+        );
+    }
+    &:after {
+        background: repeating-linear-gradient(
+                90deg,
+                var(--crt-red) 1px,
+                var(--crt-green) 2px,
+                var(--crt-blue) 3px
+        );
+    }
+}
+h1 {
+    color: var(--terminal-teriary);
+    font-family: "Press-Start-2P", system-ui;
+}
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    display: none;
+}
+
+
+
+.Ability-Section {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.gradient-button-bottom {
+    background: linear-gradient(to top, rgb(99 99 92 / 0.25), transparent);
+
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(to top, #63635c, transparent);
+    }
+}
+
+.gradient-button-top {
+    background: linear-gradient(to bottom, rgb(99 99 92 / 0.25), transparent);
+
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(to bottom, #63635c, transparent);
+    }
+}
+
+.terminal-keyword {
+    color: var(--terminal-secondary);
+}
+
+.terminal-bold {
+    color: rgb(245, 188, 0);
+}
+
+@media (width >= 48rem) {
+    .strength-card {
+        transform: translateY(10%);
+        --block-shape: polygon(0 0, 55% 0, 45% 100%, 0 100%);
+        background-color: rgba(0, 0, 0, 0.45);
+        border-shape: var(--block-shape);
+
+    }
+
+    .strength-card .Card-header > h3::after {
+        content: " // strength";
+    }
+
+    .weakness-card {
+        transform: translateY(-10%);
+        float: right;
+        --block-shape: polygon(55% 0, 100% 0, 100% 100%, 45% 100%);
+        background-color: rgba(0, 0, 0, 0.45);
+        border-shape: var(--block-shape);
+
+    }
+
+    .weakness-card .Card-header {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .Card-body > p {
+        font-size: 0.65rem;
+    }
+
+    .weakness-card .Card-header > h3 {
+        text-align: right;
+        padding-right: 1rem;
+    }
+
+    .weakness-card .Card-header > h3::after {
+        content: " // Weakness";
+    }
+
+    .Card-shaper-right {
+        margin-left: 50px;
+        --block-shape: polygon(10% 0, 100% 0, 100% 100%, -10% 100%);
+        height: 100%;
+        float: right;
+        /* border: #e685ff solid 2px;*/
+        border-shape: var(--block-shape);
+        shape-outside: var(--block-shape);
+    }
+
+    .Card-shaper-left {
+        margin-right: 80px;
+        --block-shape: polygon(0 0, 110% 0, 100% 100%, 0 100%);
+        height: 100%;
+        /* border: #e685ff solid 2px;*/
+        float: left;
+        border-shape: var(--block-shape);
+        shape-outside: var(--block-shape);
+    }
+}
+
+@media (width < 48rem) {
+    .Card {
+        height: fit-content;
+    }
+
+    .strength-card {
+
+        background-color: rgba(0, 0, 0, 0.45);
+
+
+    }
+
+    .strength-card .Card-header > h3::after {
+        content: " // strength";
+    }
+
+    .weakness-card {
+
+        background-color: rgba(0, 0, 0, 0.45);
+
+
+    }
+
+    .Card-header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .Card-body > p {
+        font-size: 0.65rem;
+    }
+
+    .weakness-card .Card-header > h3 {
+        text-align: right;
+        padding-right: 1rem;
+    }
+
+    .weakness-card .Card-header > h3::after {
+        content: " // Weakness";
+    }
+
+    .Card-shaper-right {
+
+    }
+
+    .Card-shaper-left {
+
+    }
+}
+
+
+
+
